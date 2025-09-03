@@ -29,7 +29,8 @@ ISR(TIMER2_COMPA_vect) {
 
 void setup() {
   Serial.begin(9600);
-  Serial.println("Високопрецизен брояч на импулси стартиран.");
+  //Serial.println("Високопрецизен брояч на импулси стартиран.");
+  Serial.println("High accuracy pulse counter started.");
 
   // Настройка на пин D5 (T1) като вход
   pinMode(PULSE_PIN, INPUT);
@@ -71,11 +72,11 @@ void loop() {
     buffer[index] = pulseCount;
 
 
-    Serial.print("Импулси в последната секунда: ");
+    Serial.print("Pulses in last second: ");
     Serial.print(pulseCount);
-    Serial.print(" среден брой за последните ");
+    Serial.print(" average count at last ");
     Serial.print(BUFF_LEN);
-    Serial.print(" секунди: ");
+    Serial.print(" secconds: ");
     Serial.println(average / BUFF_LEN);
 
     index++;
